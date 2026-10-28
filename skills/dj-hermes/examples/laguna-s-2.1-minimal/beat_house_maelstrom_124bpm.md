@@ -26,7 +26,7 @@ Rscript beat_house_maelstrom_124bpm.R && file beat_house_maelstrom_124bpm.wav
 # -> RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
 ffprobe -v error -show_entries format=duration -of csv=p=0 beat_house_maelstrom_124bpm.wav
 # -> 15.48 s; must be >= min_render_seconds (defaults.yaml render_policy) [15, 30]
-bash ../../../../plugins/dj-hermes/scripts/check_examples.sh
+bash ../../../../scripts/check_examples.sh
 ```
 
 ## Verify (Path B, live)
@@ -34,10 +34,10 @@ Encode a shareable link (no browser needed; the URL is base64 of the code,
 percent-encoded — a self-contained fragment, no Supabase short-link DB):
 
 ```bash
-URL=$(python3 ../../../../plugins/dj-hermes/scripts/strudel_url.py encode \
+URL=$(python3 ../../../../scripts/strudel_url.py encode \
         beat_house_maelstrom_124bpm.strudel.cc)
 echo "$URL" | xclip -sel clip   # paste into strudel.cc, press Play
-python3 ../../../../plugins/dj-hermes/scripts/strudel_url.py decode "$URL"  # round-trip
+python3 ../../../../scripts/strudel_url.py decode "$URL"  # round-trip
 ```
 
 ## References

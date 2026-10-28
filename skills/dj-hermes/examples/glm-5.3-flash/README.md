@@ -4,7 +4,7 @@ Four beats built by Hermes Agent on 2026-10-24, each exercising combinators the
 previous `inkling/` set did not touch. Every WAV was actually rendered with the
 local maelstrom install (`Rscript`, cycles = bars of 4/4 via `cps = bpm/240`,
 stereo, 44100 Hz, 16-bit PCM) and verified with `file()` + `ffprobe`
-(`plugins/dj-hermes/scripts/check_examples.sh`) — not python-synth fakes, and
+(`scripts/check_examples.sh`) — not python-synth fakes, and
 not the 3-4 second stubs the first pass shipped (see bug list, item 6).
 
 | File | Style | BPM | Bars | Duration | New combinator coverage |
@@ -21,7 +21,7 @@ Each beat has three files:
 - `.strudel.cc` — paste-ready Strudel code (Path B: strudel.cc), written against the verified `@strudel` API — see `references/strudel-vs-maelstrom.md` for what does NOT map 1:1 (`.synth`, `degrade(x)`, `arp`, …)
 - `.md` — self-documented provenance: combinators, man/ docs, GGUF link, both paths
 
-Path B link → user (no browser needed): `python3 plugins/dj-hermes/scripts/strudel_url.py encode <beat>.strudel.cc` → clickable `https://strudel.cc/#...` URL (the same format the Share button's long link produces).
+Path B link → user (no browser needed): `python3 scripts/strudel_url.py encode <beat>.strudel.cc` → clickable `https://strudel.cc/#...` URL (the same format the Share button's long link produces).
 
 ## Bugs found while building these (feedback into skills)
 1. **`pan()` is scalar-only in this maelstrom build** — `pan(n("0.3 0.7"))`

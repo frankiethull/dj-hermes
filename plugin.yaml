@@ -1,0 +1,27 @@
+name: dj-hermes
+version: "0.3.0"
+description: Hermes plugin for uzu-lang beat making with Rhythmancer and maelstrom
+author: Frankie Hull (frankiethull)
+license: MIT
+homepage: https://github.com/frankiethull/dj-hermes
+requires_hermes: ">=0.21.6"
+platforms: [linux, macos, windows]
+tags: [music, beat-making, uzu, rhythmancer, maelstrom, strudel, audio-generation]
+
+# Optional environment variables (none are required)
+optional_env:
+  - name: RHYTHMANCER_GGUF
+    description: Path to a local Rhythmancer GGUF (e.g. rhythmancer-Q4_K_M.gguf from Nanite-Labs/nanites-rhythmancer-3b-generator-gguf). Without it, /generate returns a clearly-flagged stub pattern.
+    required: false
+
+# Python dependencies for dashboard/plugin_api.py (installed via pip when
+# the plugin is enabled). Generation itself runs llama.cpp as a subprocess,
+# so torch/transformers are NOT needed and are not declared.
+python_dependencies:
+  - "fastapi>=0.110,<1"
+  - "pydantic>=2,<3"
+  - "uvicorn>=0.29,<1"
+  - "pyyaml>=6,<7"
+
+provides_tools: []
+provides_hooks: []

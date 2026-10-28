@@ -93,6 +93,6 @@ maelstrom::render(
 
 - WAV file exists at output path
 - File duration matches expected: `bars * 60 / bpm * 4` seconds (4/4 time)
-- Duration satisfies `render_policy` in `defaults.yaml`: `bash plugins/dj-hermes/scripts/check_examples.sh` (or the same ffprobe check per file) — a WAV under `min_render_seconds` (15s) is a fail, not a style choice
+- Duration satisfies `render_policy` in `defaults.yaml`: `bash scripts/check_examples.sh` (or the same ffprobe check per file) — a WAV under `min_render_seconds` (15s) is a fail, not a style choice
 - Audio plays without corruption (check with `file` or `ffprobe`)
 - Sample rate and bit depth match settings

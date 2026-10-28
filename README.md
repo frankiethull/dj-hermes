@@ -37,9 +37,12 @@ skills/dj-hermes/       # umbrella skill: hard lessons + references + examples/
   defaults.yaml             # tempo/genre/render/strudel policy (never hardcoded)
   references/*.md           # verified API tables + workflow lessons
 skills/dj-generate|render|validate|export|listen/   # sub-skills
-plugins/dj-hermes/      # Hermes plugin: manifest + dashboard API + desktop UI
-  scripts/check_examples.sh    # WAV duration/validity guardrail
-  scripts/strudel_url.py       # strudel.cc share-link encoder/decoder
+plugin.yaml             # Hermes plugin manifest (repo root, like hermes-tabular)
+__init__.py             # registers the skill pack with Hermes (ctx.register_skill)
+dashboard/plugin_api.py # dashboard API (generate/render/validate/export/listen)
+desktop/plugin.js       # desktop UI pane + palette command
+scripts/check_examples.sh    # WAV duration/validity guardrail
+scripts/strudel_url.py       # strudel.cc share-link encoder/decoder
 ```
 
 ## Quick start
@@ -55,7 +58,7 @@ ffprobe -v error -show_entries format=duration -of csv=p=0 beat_deep_house_122bp
 Path B (clickable link, no browser scripting needed):
 
 ```bash
-python3 plugins/dj-hermes/scripts/strudel_url.py encode \
+python3 scripts/strudel_url.py encode \
   skills/dj-hermes/examples/glm-5.3-flash/beat_deep_house_122bpm.strudel.cc
 # -> https://strudel.cc/#...   hand the user the link
 ```
@@ -77,7 +80,7 @@ llama-cli -m ~/models/rhythmancer/rhythmancer-Q4_K_M.gguf -ngl 99 -no-cnv \
   3-4 s WAVs in past sessions.
 - **Render length:** `cycles = max(8, ceiling(15 * bpm / 240))`; every WAV must
   satisfy `render_policy` in `skills/dj-hermes/defaults.yaml`. Enforcement:
-  `bash plugins/dj-hermes/scripts/check_examples.sh` (exit non-zero on
+  `bash scripts/check_examples.sh` (exit non-zero on
   violations — run it in CI / before shipping).
 - **maelstrom≠Strudel:** methods are cousins, not twins — `.degrade()` is
   0-arg in Strudel, `.synth` doesn't exist there, `arp` takes 2 args. The

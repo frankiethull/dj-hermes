@@ -29,7 +29,7 @@
 4. **Agent-friendly & narrow** — One primary entry point (like hermes-tabular’s `tabular`). Small decision space, clear defaults, no kitchen-sink DAW.
 5. **Honest & open** — Clean provenance (synthetic training data for the model). Apache/MIT-style licensing. No scraped live-coding corpus claims.
 6. **Hermes-native** — Installs cleanly via the plugin catalog, auto-registers skills under the `dj-hermes:` namespace.
-7. **Audible, not token-sized** — A "render" nobody can listen to is a defect. One maelstrom cycle = one bar (4/4), so `cps = bpm / 240` — never `bpm / 60`. Example/deliverable WAVs must satisfy `render_policy` in `skills/dj-hermes/defaults.yaml` (`>= 15 s`), verified mechanically with `plugins/dj-hermes/scripts/check_examples.sh`. The same rule holds for Strudel exports (`setcps(bpm/240)`).
+7. **Audible, not token-sized** — A "render" nobody can listen to is a defect. One maelstrom cycle = one bar (4/4), so `cps = bpm / 240` — never `bpm / 60`. Example/deliverable WAVs must satisfy `render_policy` in `skills/dj-hermes/defaults.yaml` (`>= 15 s`), verified mechanically with `scripts/check_examples.sh`. The same rule holds for Strudel exports (`setcps(bpm/240)`).
 
 ## 4. Primary Use Cases (v0–v1)
 
@@ -91,7 +91,7 @@ Policy defaults live in a small YAML (tempo ranges, genre list, render length, e
 
 ## 10. Licensing & Provenance
 
-- Plugin & orchestration code: Apache-2.0 or MIT (match hermes-tabular preference)
+- Plugin & orchestration code: MIT (LICENSE file at repo root, matches hermes-tabular)
 - maelstrom: keep its existing license
 - Rhythmancer 3B: Apache-2.0 (as published)
 - Training data remains 100% synthetic / template-generated

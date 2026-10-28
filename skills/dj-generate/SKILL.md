@@ -49,7 +49,7 @@ Uses `Nanite-Labs/nanites-rhythmancer-3b-generator-gguf` for local/offline infer
 - Load GGUF (local, reproducible seed)
 - Generate -> validate against maelstrom (`man/mini_parse_*.Rd`) — and
   against `references/strudel-vs-maelstrom.md` for Path B
-- Emit to dj-render (maelstrom `render_stereo`/`render_wav`) OR dj-export (Strudel + share link via `plugins/dj-hermes/scripts/strudel_url.py`)
+- Emit to dj-render (maelstrom `render_stereo`/`render_wav`) OR dj-export (Strudel + share link via `scripts/strudel_url.py`)
 
 ## References
 - GGUF repo: https://huggingface.co/Nanite-Labs/nanites-rhythmancer-3b-generator-gguf

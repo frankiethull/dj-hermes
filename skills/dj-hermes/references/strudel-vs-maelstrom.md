@@ -72,7 +72,7 @@ Agent procedure for "give me a playable link":
 
 1. Generate/fix the Strudel code (this file's table + Path B template).
 2. Sanity-parse if you can (node + `@strudel/mini` or at least bracket/nesting balance).
-3. Encode: `python3 plugins/dj-hermes/scripts/strudel_url.py encode '<file-or-code>'`
+3. Encode: `python3 scripts/strudel_url.py encode '<file-or-code>'`
    → returns a `https://strudel.cc/#...` URL.
 4. Hand the user BOTH the raw code and the clickable URL.
 5. The Share button's short link (`https://strudel.cc/?HASH`) needs the

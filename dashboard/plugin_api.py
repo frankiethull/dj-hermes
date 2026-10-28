@@ -15,7 +15,7 @@ from fastapi import FastAPI, HTTPException, BackgroundTasks
 from pydantic import BaseModel, Field
 import yaml
 
-app = FastAPI(title="dj-hermes API", version="0.1.0")
+app = FastAPI(title="dj-hermes API", version="0.3.0")
 
 # Load plugin config
 PLUGIN_DIR = Path(__file__).parent.parent
@@ -217,14 +217,14 @@ def convert_to_strudel(pattern: str, include_tempo: bool, include_swing: bool,
 # API Endpoints
 @app.get("/health")
 async def health():
-    return {"status": "ok", "plugin": "dj-hermes", "version": "0.1.0"}
+    return {"status": "ok", "plugin": "dj-hermes", "version": "0.3.0"}
 
 
 @app.post("/generate", response_model=GenerateResponse)
 async def generate(req: GenerateRequest):
     """Generate pattern from prompt via Rhythmancer."""
     # Load genre preset for defaults
-    defaults_path = PLUGIN_DIR.parent.parent / "skills" / "dj-hermes" / "defaults.yaml"
+    defaults_path = PLUGIN_DIR / "skills" / "dj-hermes" / "defaults.yaml"
     genre_presets = {}
     if defaults_path.exists():
         with open(defaults_path) as f:
