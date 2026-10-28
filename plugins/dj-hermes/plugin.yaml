@@ -1,0 +1,79 @@
+id: dj-hermes
+name: dj-hermes
+version: 0.1.0
+description: Hermes plugin for uzu-lang beat making with Rhythmancer and maelstrom
+author: Frankie Hull (frankiethull)
+license: MIT
+homepage: https://github.com/frankiethull/dj-hermes
+repository: https://github.com/frankiethull/dj-hermes
+
+# Plugin entry points
+api: plugin_api.py
+desktop: desktop/plugin.js
+
+# Required environment variables
+env:
+  - name: RHYTHMANCER_MODEL
+    description: Hugging Face model ID for Rhythmancer
+    default: "Nanite-Labs/nanites-rhythmancer-3b-generator"
+    required: false
+  - name: MAELSTROM_PATH
+    description: Path to maelstrom R package installation
+    required: false
+
+# Python dependencies (installed via pip when plugin enabled)
+dependencies:
+  - torch>=2.0
+  - transformers>=4.30
+  - accelerate>=0.20
+  - huggingface_hub>=0.15
+  - pyyaml>=6.0
+  - requests>=2.31
+
+# System requirements
+system_requirements:
+  - R>=4.0
+  - r-tuner
+  - r-seewave
+  - r-stringr
+  - r-magrittr
+
+# Skills this plugin provides (auto-registered under dj-hermes: namespace)
+skills:
+  - dj-hermes/dj-hermes
+  - dj-hermes/dj-generate
+  - dj-hermes/dj-render
+  - dj-hermes/dj-validate
+  - dj-hermes/dj-export
+  - dj-hermes/dj-listen
+
+# Default configuration (merged into user config when plugin enabled)
+config:
+  dj_hermes:
+    default_tempo: 120
+    default_bars: 8
+    default_genre: "house"
+    rhythmancer_device: "auto"  # auto, cuda, cpu
+    # real generation via llama.cpp; Backend picks this up when RHYTHMANCER_GGUF
+    # is set (GGUF: Nanite-Labs/nanites-rhythmancer-3b-generator-gguf, Q4_K_M)
+    # without it, /generate returns a clearly-flagged stub pattern
+    maelstrom_rscript: "Rscript"
+    output_dir: "~/dj-hermes/output"
+    strudel_export_enabled: true
+
+# Permissions this plugin needs
+permissions:
+  - filesystem_read
+  - filesystem_write
+  - network_request
+  - subprocess_exec
+
+# Tags for catalog
+tags:
+  - music
+  - beat-making
+  - uzu
+  - rhythmancer
+  - maelstrom
+  - strudel
+  - audio-generation

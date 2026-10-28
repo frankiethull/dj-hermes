@@ -1,0 +1,105 @@
+# dj-hermes Policy Defaults
+# All tunable parameters live here so the prose skill stays stable
+
+# Tempo ranges per genre (bpm)
+tempo_ranges:
+  house: [115, 130]
+  techno: [120, 140]
+  uk_garage: [130, 140]
+  drum_and_bass: [160, 180]
+  dubstep: [135, 145]
+  trap: [130, 150]
+  hip_hop: [80, 100]
+  ambient: [60, 90]
+  breakbeat: [125, 140]
+  electro: [120, 135]
+  default: [120, 130]
+
+# Render length policy.
+# maelstrom timing semantic: 1 cycle = 1 bar of 4/4, so cps = bpm / 240.
+# NEVER use cps = bpm / 60: that treats one cycle as one beat and silently
+# produces 3-4 second WAVs ("way too much jammed into too little time").
+# Expected WAV duration (seconds) = cycles * 240 / bpm.
+render_policy:
+  default_render_bars: 8
+  max_render_bars: 64
+  target_render_seconds: 15
+  # Hard floor for any shipped example/downstream WAV (enforced by
+  # plugins/dj-hermes/scripts/check_examples.sh)
+  min_render_seconds: 15
+  # Hard ceiling to keeps renders bounded
+  max_render_seconds: 30
+  # cycles = max(default_render_bars, ceiling(target_render_seconds * bpm / 240))
+
+# Genre presets - each preset defines default parameters
+genre_presets:
+  house:
+    tempo: 124
+    swing: 0.1
+    density: 0.7
+  techno:
+    tempo: 130
+    swing: 0.0
+    density: 0.8
+  uk_garage:
+    tempo: 136
+    swing: 0.15
+    density: 0.6
+  drum_and_bass:
+    tempo: 174
+    swing: 0.0
+    density: 0.9
+  dubstep:
+    tempo: 140
+    swing: 0.05
+    density: 0.5
+  trap:
+    tempo: 140
+    swing: 0.0
+    density: 0.6
+  hip_hop:
+    tempo: 90
+    swing: 0.2
+    density: 0.5
+  ambient:
+    tempo: 70
+    swing: 0.0
+    density: 0.3
+  breakbeat:
+    tempo: 132
+    swing: 0.1
+    density: 0.7
+  electro:
+    tempo: 128
+    swing: 0.05
+    density: 0.6
+
+# Rhythmancer generation parameters
+rhythmancer:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 512
+  repetition_penalty: 1.1
+
+# maelstrom render settings
+maelstrom:
+  sample_rate: 44100
+  bit_depth: 16
+  normalize: true
+  fade_out_bars: 1
+
+# Strudel export settings
+# API verified against @strudel 1.2.6 (the code strudel.cc ships) —
+# see skills/dj-hermes/references/strudel-vs-maelstrom.md for the full trap table
+strudel:
+  include_tempo: true
+  include_swing: true
+  wrap_in_stack: true
+  # 1 cycle = 1 bar of 4/4. NOT setcps(bpm/60) (renders 4x too fast),
+  # NOT setcps(bpm). setcps(bpm/240) is equivalent but setcpm(x/4) is the docs idiom
+  tempo_form: "setcpm(bpm/4)"
+  # swing is a pattern method (.swing(x)); no verified setSwing global
+  swing_mode: "pattern_method"
+  # long, self-contained share links only (short ?HASH links need the Supabase DB)
+  share_url_form: "https://strudel.cc/#<quote(base64(code), safe='')>"
+  share_script: "plugins/dj-hermes/scripts/strudel_url.py"
