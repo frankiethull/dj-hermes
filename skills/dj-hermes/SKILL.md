@@ -1,6 +1,6 @@
 ---
 name: dj-hermes
-description: Uzu-language beat plugin for Hermes: Rhythmancer GGUF generation, maelstrom render (man/examples), Strudel bridge, and multi-path skillpack.
+description: "Uzu-language beat plugin for Hermes: Rhythmancer GGUF generation, maelstrom render (man/examples), Strudel bridge, and multi-path skillpack."
 version: 0.3.0
 author: Frank Hull (frankiethull), Hermes Agent
 license: MIT
