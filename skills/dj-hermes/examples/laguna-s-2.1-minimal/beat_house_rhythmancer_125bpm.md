@@ -76,7 +76,7 @@ Rscript beat_house_rhythmancer_125bpm.R && file beat_house_rhythmancer_125bpm.wa
 # -> RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 44100 Hz
 ffprobe -v error -show_entries format=duration -of csv=p=0 beat_house_rhythmancer_125bpm.wav
 # -> 15.36 s; must be >= min_render_seconds (defaults.yaml render_policy) [15, 30]
-bash ../../../../plugins/dj-hermes/scripts/check_examples.sh  # if present
+bash ../../../../scripts/check_examples.sh  # if present
 ```
 
 ## Verify (Path B, live via strudel.cc)
@@ -85,9 +85,9 @@ no Supabase DB dependency).
 
 **Live link:** https://strudel.cc/#Ly8gYmVhdF9ob3VzZV9yaHl0aG1hbmNlcl8xMjVicG0g4oCUIExMTS1nZW5lcmF0ZWQgYnkgUmh5dGhtYW5jZXIKLy8gUGF0aCBDOiBOYW5pdGUtTGFicy9uYW5pdGVzLXJoeXRobWFuY2VyLTNiLWdlbmVyYXRvci1nZ3VmIChRNF9LX00sIDMuMDlCLCAxLjhHQikKLy8gUHJvbXB0OiAiZGVlcCBob3VzZSB0cmFjayB3aXRoIGEgcm9sbGluZyBiYXNzbGluZSBhbmQgc3VwZXJzYXcgY2hvcmQgc3RhYnMgYXQgMTI1IGJwbSIKLy8gRW5naW5lOiBsbGFtYS1jbGkgKGdjYyA2OTgxLCBDUFUtb25seSBidWlsZCwgbm8gR1BVIHN1cHBvcnQpCi8vIFNhbXBsaW5nOiAtLXRlbXAgMC44IC0tdG9wLXAgMC45NSAtLW4tcHJlZGljdCA0MDAsIGNoYXRfdGVtcGxhdGUgcXdlbjIgKENoYXRNTCkKLy8gT3V0cHV0IGlzIHZlcmJhdGltIFN0cnVkZWwgMS4yLjYgc3ludGF4IChwZXIgbW9kZWwgUkVBRE1FOiAyNC8yNCBhZGFwdGVyIGV2YWwgcGFyc2VzKS4KLy8KLy8gTk9URSAodW50cmFuc2xhdGVkIHRvIG1hZWxzdHJvbSBQYXRoIEEpOiAuYmFuaygpLCAucm9vbSgpLCAuZGVncmFkZUJ5KCksCi8vICAgLnNjcmFtYmxlKCksIC5jaG9yZCgpLnZvaWNpbmcoKSBoYXZlIG5vIG1hZWxzdHJvbSBjb21iaW5hdG9yIGVxdWl2YWxlbnQuCi8vICAgU2VlIGJlYXRfaG91c2Vfcmh5dGhtYW5jZXJfMTI1YnBtLlIgZm9yIHRoZSBvZmZsaW5lLXJlbmRlciB0cmFuc2xhdGlvbi4Kc2V0Y3BtKDEyNS80KQpzdGFjaygKICBzKCJiZCo0IikuZ2FpbigwLjgzKSwKICBzKCJ%2BIGNwIH4gY3AiKS5iYW5rKCJSb2xhbmRUUjgwOCIpLnJvb20oMC4yMikuZGVncmFkZUJ5KDAuMDgpLAogIHMoIn4gb2ggfiBvaCIpLmJhbmsoIlJvbGFuZFRSODA4IikuZ2FpbigwLjg2KSwKICBzKCJ%2BIGhoIGhoIH4iKS5ocGYoODE2MykuZ2FpbigwLjUyKSwKICBub3RlKCJ%2BIGEyIGEyIGEyIGEyIGEyIGEyIikuc291bmQoInRyaWFuZ2xlIikuZ2FpbigwLjk5KS5zY3JhbWJsZSgyKSwKICBjaG9yZCgiPENtNyBHYm05PiIpLnZvaWNpbmcoKS5yb29tKDAuNCkKKQo%3D
 ```bash
-python3 ../../../../plugins/dj-hermes/scripts/strudel_url.py encode \
+python3 ../../../../scripts/strudel_url.py encode \
         beat_house_rhythmancer_125bpm.strudel.cc
-python3 ../../../../plugins/dj-hermes/scripts/strudel_url.py decode "<url>"  # round-trip
+python3 ../../../../scripts/strudel_url.py decode "<url>"  # round-trip
 ```
 
 ## References

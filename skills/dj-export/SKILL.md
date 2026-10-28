@@ -60,7 +60,7 @@ Don't use for:
 5. **Wrap if needed** — `stack(...)`; apply swing as a pattern method (`.swing(0.15)`) instead of a global
 6. **Generate share link** — the long URL format is base64(code) percent-encoded into the URL fragment, so agents mint links WITHOUT a browser:
    ```bash
-   python3 plugins/dj-hermes/scripts/strudel_url.py encode path/to/beat.strudel.cc
+   python3 scripts/strudel_url.py encode path/to/beat.strudel.cc
    # -> https://strudel.cc/#<base64url-encoded-code>   (clickable, self-contained)
    ```
    The Share button's short link (`?HASH`) needs the Supabase share DB (agents can't mint, and links depend on that DB). Always ship the long URL.

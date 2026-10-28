@@ -25,7 +25,7 @@ render_policy:
   max_render_bars: 64
   target_render_seconds: 15
   # Hard floor for any shipped example/downstream WAV (enforced by
-  # plugins/dj-hermes/scripts/check_examples.sh)
+  # scripts/check_examples.sh)
   min_render_seconds: 15
   # Hard ceiling to keeps renders bounded
   max_render_seconds: 30
@@ -102,4 +102,4 @@ strudel:
   swing_mode: "pattern_method"
   # long, self-contained share links only (short ?HASH links need the Supabase DB)
   share_url_form: "https://strudel.cc/#<quote(base64(code), safe='')>"
-  share_script: "plugins/dj-hermes/scripts/strudel_url.py"
+  share_script: "scripts/strudel_url.py"

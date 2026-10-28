@@ -98,7 +98,7 @@ try {
   - Inline `|` layering is invalid (polymeter only via `{a b, x y}`)
   - `pan()` / other fx accept scalar values only (pattern-valued fx cause `num_or` closure errors at render)
   - a parser-bisect style check (`render_stereo` each voice at `cycles=1`) catches engine-specific failures `parse_pattern` misses because some defects only surface at render time
-- **Parse-valid + rendered ≠ correct.** Also validate the *render length*: every shipped WAV must satisfy `render_policy` in `skills/dj-hermes/defaults.yaml` (`>= min_render_seconds`, 15s). A 3-4 second WAV means `cps` was set to `bpm / 60` (cycle treated as one beat); correct is `cps = bpm / 240` (one cycle = one bar of 4/4), i.e. `cycles = max(8, ceiling(15 * bpm / 240))`. Enforce with `bash plugins/dj-hermes/scripts/check_examples.sh`
+- **Parse-valid + rendered ≠ correct.** Also validate the *render length*: every shipped WAV must satisfy `render_policy` in `skills/dj-hermes/defaults.yaml` (`>= min_render_seconds`, 15s). A 3-4 second WAV means `cps` was set to `bpm / 60` (cycle treated as one beat); correct is `cps = bpm / 240` (one cycle = one bar of 4/4), i.e. `cycles = max(8, ceiling(15 * bpm / 240))`. Enforce with `bash scripts/check_examples.sh`
 
 ## Verification
 

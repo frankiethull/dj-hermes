@@ -7,12 +7,12 @@
 # cps = bpm / 60 mistake (cycle treated as one beat instead of one bar);
 # correct value is cps = bpm / 240, giving duration = cycles * 240 / bpm.
 #
-# Usage: bash plugins/dj-hermes/scripts/check_examples.sh
+# Usage: bash scripts/check_examples.sh
 # Exit 0 = pass, non-zero = violation (CI / agents should fail on this).
 
 set -uo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEFAULTS="$ROOT/skills/dj-hermes/defaults.yaml"
 
 if [ ! -f "$DEFAULTS" ]; then

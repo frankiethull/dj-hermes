@@ -30,4 +30,4 @@ code for: smoky dub track with echoing skanks at 76 bpm`
 - `.wav` — `beat_smoky_dub_76bpm.wav`, RIFF-verified.
 - `.strudel.cc` — the GGUF output verbatim (Path B raw).
 - Playable link mints itself (no browser):
-  `python3 plugins/dj-hermes/scripts/strudel_url.py encode beat_smoky_dub_76bpm.strudel.cc`
+  `python3 scripts/strudel_url.py encode beat_smoky_dub_76bpm.strudel.cc`

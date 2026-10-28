@@ -45,7 +45,7 @@ These were hit empirically against the installed maelstrom; always assume them:
    every Strudel export (`setcps(bpm/60)`) and in
    `dashboard/plugin_api.py::convert_to_strudel` — the fix applies to all
    three surfaces. Ship-verifiable: `ffprobe` duration + `file` RIFF check,
-   automated by `plugins/dj-hermes/scripts/check_examples.sh`. Also fixed in
+   automated by `scripts/check_examples.sh`. Also fixed in
    the same session: inkling `.R` files wrote WAVs into the parent
    `examples/` dir instead of their own (always write relative to the
    script's directory).
