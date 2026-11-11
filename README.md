@@ -39,8 +39,6 @@ skills/dj-hermes/       # umbrella skill: hard lessons + references + examples/
 skills/dj-generate|render|validate|export|listen/   # sub-skills
 plugin.yaml             # Hermes plugin manifest (repo root, like hermes-tabular)
 __init__.py             # registers the skill pack with Hermes (ctx.register_skill)
-dashboard/plugin_api.py # dashboard API (generate/render/validate/export/listen)
-desktop/plugin.js       # desktop UI pane + palette command
 scripts/check_examples.sh    # WAV duration/validity guardrail
 scripts/strudel_url.py       # strudel.cc share-link encoder/decoder
 ```
