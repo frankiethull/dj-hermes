@@ -2,7 +2,7 @@
 
 ## Signals embedded from session
 - User corrected style/verbosity: must be direct, no over-explaining before asking/acting.
-- User corrected workflow: build in `/home/frankiethull/Documents/dj-hermes` (not `~/.hermes/`); self-documented; package + plugin.
+- User corrected workflow: build in `/home/[USER]/Documents/dj-hermes` (not `~/.hermes/`); self-documented; package + plugin.
 - User corrected technique: use maelstrom `man/` + `examples/` (not python synth); use GGUF (`llama.cpp`); generate different patterns per style.
 - User corrected output: produce real `.wav` (`render_stereo()` + `write_wav()`), `.strudel.cc` from `.md` prompts, `.R` files unique per style.
 
