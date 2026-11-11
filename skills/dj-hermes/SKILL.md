@@ -42,8 +42,6 @@ Umbrella for the dj-hermes plugin + skillpack. Governs ALL beat-generation work 
 - `references/strudel-vs-maelstrom.md` — verified Strudel API table (arities, voice names, absent sounds, share-link format) — read before any Strudel export
 - `defaults.yaml` — tempo/genre/render policy (never hardcoded); `render_policy` defines render length + the `cps = bpm/240` rule; `strudel:` block pins `setcpm(bpm/4)`
 - `plugin.yaml` — plugin manifest
-- `dashboard/plugin_api.py` — backend (generate/render/validate/export/listen)
-- `desktop/plugin.js` — desktop UI pane + palette command
 - `scripts/check_examples.sh` — WAV duration/validity guardrail (run before shipping examples)
 - `scripts/strudel_url.py` — strudel.cc share-link encode/decode (agent flow: hand back a playable URL)
 - `skills/dj-hermes/examples/*.R` + `*.md` — reproducible patterns with full doc links
